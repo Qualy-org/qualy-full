@@ -65,15 +65,14 @@ With the commands above, you have everything to start.
 │   └── templates
 │   │   └── index.jade
 └── server
+│   ├── app.js
+│   ├── config.js
+│   ├── routes.js
 │   ├── api
-│   │   ├── app.js
-│   │   ├── config.js
-│   │   ├── routes.js
-│   │   ├── api
-│   │   │   ├── route-name
-│   │   │   │   ├── index.js
-│   │   │   │   ├── route-name.controller.js
-│   │   │   │   ├── route-name.controller.spec.js
+│   │   ├── route-name
+│   │   │   ├── index.js
+│   │   │   ├── route-name.controller.js
+│   │   │   ├── route-name.controller.spec.js
 ```
 
 Those folders and file will change during the project.
