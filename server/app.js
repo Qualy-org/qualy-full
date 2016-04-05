@@ -1,10 +1,12 @@
 'use strict';
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var path = require('path');
-var config = require('./config');
+import express from 'express';
+import bodyParser from 'body-parser';
+import path from 'path';
+import config from './config';
+import routes from './routes'
+
+const app = express();
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -25,8 +27,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(app.get('appPath')));
 
-require('./routes')(app);
+routes(app);
 
-app.listen(app.get('port'), function () {
-    console.log('Server running: http://' + config.host + ':' + app.get('port') + '/');
+app.listen(app.get('port'), () => {
+    console.log(`Server running: http://${config.host}:${app.get('port')}/`);
 });

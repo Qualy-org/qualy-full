@@ -1,6 +1,6 @@
 'use strict';
 
-var path = require('path');
+import path from 'path';
 
 // default
 var config = {
@@ -19,4 +19,4 @@ switch (process.env.NODE_ENV) {
         break;
 }
 
-module.exports =  config;
+export default config;

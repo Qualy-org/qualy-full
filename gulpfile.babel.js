@@ -18,15 +18,16 @@ import browserSync from 'browser-sync';
 import ghPages from 'gulp-gh-pages';
 import mocha from 'gulp-mocha';
 import istanbul from 'gulp-istanbul';
+import isparta from 'isparta';
 import env from 'gulp-env';
 import rollupConfig from './rollup.config';
 
 const srcPaths = {
-    js: 'src/js/main.js',
-    css: 'src/styl/**/*.styl',
-    mainStyl: 'src/styl/main.styl',
-    jade: 'src/templates/*.jade',
-    img: 'src/img/**/*'
+    js: 'client/js/main.js',
+    css: 'client/styl/**/*.styl',
+    mainStyl: 'client/styl/main.styl',
+    jade: 'client/templates/*.jade',
+    img: 'client/img/**/*'
 };
 
 const buildPaths = {
@@ -101,28 +102,27 @@ gulp.task('pages', () => {
 });
 
 gulp.task('env:test', () => {
-  env({
-    vars: {
-      NODE_ENV: 'test'
-    }
-  });
+    env({
+        vars: {
+            NODE_ENV: 'test'
+        }
+    });
 });
 
-gulp.task( 'pre-test:backend', function () {
-  return gulp.src([ 'backend/api/**/*.model.js', 'backend/api/**/*.controller.js', '!backend/api/**/*.spec.js' ])
-    // Covering files
-    .pipe( istanbul() )
-    // Force `require` to return covered files
-    .pipe( istanbul.hookRequire() );
+gulp.task('pre-test:backend', () => {
+    return gulp.src(['backend/api/**/*.controller.js', '!backend/api/**/*.spec.js'])
+        .pipe(istanbul({
+            instrumenter: isparta.Instrumenter,
+            includeUntested: true
+        }))
+        .pipe(istanbul.hookRequire());
 });
 
 gulp.task('test:backend', ['pre-test:backend', 'env:test'], () => {
-  return gulp.src(['server/api/**/*.spec.js'])
-    .pipe(mocha({ reporter: 'spec' }))
-    // Creating the reports after tests ran
-    .pipe( istanbul.writeReports() )
-    // Enforce a coverage value
-    .pipe( istanbul.enforceThresholds({ thresholds: { global: 100 } }) );
+    return gulp.src(['server/api/**/*.spec.js'])
+        .pipe(mocha({ reporter: 'spec' }))
+        .pipe(istanbul.writeReports())
+        .pipe(istanbul.enforceThresholds({ thresholds: { global: 100 } }));
 });
 
 gulp.task('test', ['test:backend']);
