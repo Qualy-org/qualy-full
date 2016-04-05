@@ -10,14 +10,15 @@ import jeet from 'jeet';
 import rupture from 'rupture';
 import koutoSwiss from 'kouto-swiss';
 import prefixer from 'autoprefixer-stylus';
-import babel from 'rollup-plugin-babel';
 import rollup from 'gulp-rollup';
-import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import jade from 'gulp-jade';
 import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
 import ghPages from 'gulp-gh-pages';
+import mocha from 'gulp-mocha';
+import istanbul from 'gulp-istanbul';
+import env from 'gulp-env';
 import rollupConfig from './rollup.config';
 
 const srcPaths = {
@@ -99,5 +100,31 @@ gulp.task('pages', () => {
         .pipe(ghPages());
 });
 
+gulp.task('env:test', () => {
+  env({
+    vars: {
+      NODE_ENV: 'test'
+    }
+  });
+});
+
+gulp.task( 'pre-test:backend', function () {
+  return gulp.src([ 'backend/api/**/*.model.js', 'backend/api/**/*.controller.js', '!backend/api/**/*.spec.js' ])
+    // Covering files
+    .pipe( istanbul() )
+    // Force `require` to return covered files
+    .pipe( istanbul.hookRequire() );
+});
+
+gulp.task('test:backend', ['pre-test:backend', 'env:test'], () => {
+  return gulp.src(['server/api/**/*.spec.js'])
+    .pipe(mocha({ reporter: 'spec' }))
+    // Creating the reports after tests ran
+    .pipe( istanbul.writeReports() )
+    // Enforce a coverage value
+    .pipe( istanbul.enforceThresholds({ thresholds: { global: 100 } }) );
+});
+
+gulp.task('test', ['test:backend']);
 gulp.task('default', ['css', 'jade', 'js', 'images', 'watch', 'browser-sync']);
 gulp.task('deploy', ['css', 'jade', 'js', 'images', 'pages']);
