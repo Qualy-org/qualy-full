@@ -1,5 +1,7 @@
 <img src="https://raw.githubusercontent.com/willianjusten/qualy/master/src/img/qualy.png" alt="Qualy">
 
+# Qualy Fullstack
+
 This projects uses ES6, Jade, Stylus, Gulp and Browsersync. The main objective of this boilerplate is to ensure Quality to our code with Code Standards and Hooks to prevent messy codes to be committed or pushed.
 
 Maybe you want to read about them:
@@ -7,6 +9,7 @@ Maybe you want to read about them:
 - [Jade](http://jade-lang.com/)
 - [Stylus](http://learnboost.github.io/stylus/)
 - [Browsersync](https://www.browsersync.io/)
+- [Express](http://expressjs.com/)
 
 For grid system uses [Jeet](http://jeet.gs/) with some help from [Kouto Swiss](http://kouto-swiss.io/) for animations, reset and a lot of great mixins. [Rupture](https://github.com/jenius/rupture) for responsive utilities and uses ITCSS to build the CSS Architecture.
 
@@ -45,22 +48,32 @@ With the commands above, you have everything to start.
 │       └── main.js
 ├── gulpfile.babel.js
 ├── package.json
-└── src
-    ├── img
-    │   └── eventos.jpg
-    ├── js
-    │   ├── main.js
-    ├── styl
-    │   ├── _base.styl
-    │   ├── _components.styl
-    │   ├── _generic.styl
-    │   ├── _objects.styl
-    │   ├── _settings.styl
-    │   ├── _tools.styl
-    │   ├── _trumps.styl
-    │   └── main.styl
-    └── templates
-        └── index.jade
+└── client
+│   ├── img
+│   │   └── eventos.jpg
+│   ├── js
+│   │   ├── main.js
+│   ├── styl
+│   │   ├── _base.styl
+│   │   ├── _components.styl
+│   │   ├── _generic.styl
+│   │   ├── _objects.styl
+│   │   ├── _settings.styl
+│   │   ├── _tools.styl
+│   │   ├── _trumps.styl
+│   │   └── main.styl
+│   └── templates
+│   │   └── index.jade
+└── server
+│   ├── api
+│   │   ├── app.js
+│   │   ├── config.js
+│   │   ├── routes.js
+│   │   ├── api
+│   │   │   ├── route-name
+│   │   │   │   ├── index.js
+│   │   │   │   ├── route-name.controller.js
+│   │   │   │   ├── route-name.controller.spec.js
 ```
 
 Those folders and file will change during the project.
