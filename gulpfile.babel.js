@@ -17,8 +17,7 @@ import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
 import ghPages from 'gulp-gh-pages';
 import mocha from 'gulp-mocha';
-import istanbul from 'gulp-istanbul';
-import isparta from 'isparta';
+import istanbul from 'gulp-babel-istanbul';
 import env from 'gulp-env';
 import rollupConfig from './rollup.config';
 
@@ -110,11 +109,8 @@ gulp.task('env:test', () => {
 });
 
 gulp.task('pre-test:backend', () => {
-    return gulp.src(['backend/api/**/*.controller.js', '!backend/api/**/*.spec.js'])
-        .pipe(istanbul({
-            instrumenter: isparta.Instrumenter,
-            includeUntested: true
-        }))
+    return gulp.src(['server/api/**/*.controller.js', '!server/api/**/*.spec.js'])
+        .pipe(istanbul())
         .pipe(istanbul.hookRequire());
 });
 
