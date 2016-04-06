@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/willianjusten/qualy/master/src/img/qualy.png" alt="Qualy">
+<img src="https://raw.githubusercontent.com/Qualy-org/qualy-full/master/client/img/qualy.png" alt="Qualy">
 
 # Qualy Fullstack
 
