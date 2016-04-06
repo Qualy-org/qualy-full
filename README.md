@@ -23,7 +23,7 @@ First of all, install the dependencies to run this boilerplate.
 
 ```sh
 # Clone this repository
-$ git clone git@github.com:willianjusten/qualy.git
+$ git clone https://github.com/Qualy-org/qualy-full.git
 $ cd qualy
 
 # install dependencies
@@ -94,6 +94,7 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 - `gulp watch`: call for watch files
 - `gulp pages`: deploy files to gh-pages
 - `gulp deploy`: run all tasks and deploy files to gh-pages
+- `gulp test`: run all tests and coverage reports
 
 ### Thanks
 
@@ -103,4 +104,4 @@ Thanks to [@Diessicode](https://twitter.com/diessicode/status/715381477286891520
 
 This boilerplate is free and open source software, distributed under the The MIT License. So feel free to use this to create your site without linking back to me or using a disclaimer.
 
-If you’d like to give me credit somewhere on your blog or tweet a shout out to [@willian_justen](https://twitter.com/willian_justen), that would be pretty sweet.
+If you’d like to give us credit somewhere on your blog or tweet a shout out to [@willian_justen](https://twitter.com/willian_justen), [@nipher_jonas](https://twitter.com/nipher_jonas) and [@g4brielgodoy](https://twitter.com/g4brielgodoy) that would be pretty sweet.
