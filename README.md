@@ -38,21 +38,12 @@ With the commands above, you have everything to start.
 
 ```sh
 ├── README.md
-├── build
-│   ├── css
-│   │   └── main.css
+├── client
 │   ├── img
-│   │   └── eventos.jpg
-│   ├── index.html
-│   └── js
-│       └── main.js
-├── gulpfile.babel.js
-├── package.json
-└── client
-│   ├── img
-│   │   └── eventos.jpg
+│   │   └── qualy.png
 │   ├── js
-│   │   ├── main.js
+│   │   ├── hello.js
+│   │   └── main.js
 │   ├── styl
 │   │   ├── _base.styl
 │   │   ├── _components.styl
@@ -63,23 +54,27 @@ With the commands above, you have everything to start.
 │   │   ├── _trumps.styl
 │   │   └── main.styl
 │   └── templates
-│   │   └── index.jade
+│       └── index.jade
+├── gulpfile.babel.js
+├── package.json
+├── rollup.config.js
 └── server
-│   ├── app.js
-│   ├── config.js
-│   ├── routes.js
-│   ├── api
-│   │   ├── route-name
-│   │   │   ├── index.js
-│   │   │   ├── route-name.controller.js
-│   │   │   ├── route-name.controller.spec.js
+    ├── api
+    │   └── tech
+    │       ├── index.js
+    │       ├── tech.controller.js
+    │       └── tech.controller.spec.js
+    ├── app.js
+    ├── config.js
+    ├── index.js
+    └── routes.js
 ```
 
 Those folders and file will change during the project.
 
 ### Code Standarts
 
-This project uses [JSCS](http://jscs.info/) with [Airbnb presets](https://github.com/airbnb/javascript) and the [.editorconfig](https://github.com/frontendbr/eventos/blob/skeleton/.editorconfig) is defined to have indent_size of **4 spaces**.
+This project uses [JSCS](http://jscs.info/) with [Airbnb presets](https://github.com/airbnb/javascript) and the [.editorconfig](https://github.com/Qualy-org/qualy-full/blob/master/.editorconfig) is defined to have indent_size of **4 spaces**.
 
 This project also uses [Husky](https://github.com/typicode/husky) to prevent commit and push messy and wrong code. Please, don't be stupid, fix all errors before commit and push =D
 
