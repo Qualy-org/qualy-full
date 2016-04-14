@@ -1,23 +1,25 @@
 'use strict';
 
-var expect = require('chai').expect;
-var request = require('supertest');
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
+const expect = require('chai').expect;
+const request = require('supertest');
+const express = require('express');
+const bodyParser = require('body-parser');
+const router = require('./index');
+
+const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/api/tech', require('./index'));
+app.use('/api/tech', router);
 
-describe('ROUTE /api/tech', function () {
-    describe('GET /api/tech', function () {
-        it('should respond an array with techs', function (done) {
+describe('ROUTE /api/tech', () => {
+    describe('GET /api/tech', () => {
+        it('should respond an array with techs', (done) => {
             request(app)
                 .get('/api/tech')
                 .expect('Content-Type', /json/)
                 .expect(200)
-                .end(function (err, res) {
+                .end((err, res) => {
                     if (err) {
                         return done(err);
                     }

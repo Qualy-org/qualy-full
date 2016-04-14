@@ -1,6 +1,6 @@
 'use strict';
 
-var techs = ['ES6', 'Gulp', 'Stylus', 'Jade', 'Browsersync', 'Husky Hooks', 'JSCS', 'Nodejs'];
+let techs = ['ES6', 'Gulp', 'Stylus', 'Jade', 'Browsersync', 'Husky Hooks', 'JSCS', 'Nodejs'];
 
 exports.find = find;
 

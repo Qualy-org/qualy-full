@@ -1,7 +1,7 @@
 'use strict';
 
-import tech from './api/tech';
+const tech = require('./api/tech');
 
-export default (app) => {
+module.exports = (app) => {
     app.use('/api/tech', tech);
 };

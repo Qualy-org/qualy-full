@@ -1,26 +1,25 @@
 'use strict';
 
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import stylus from 'gulp-stylus';
-import cssnano from 'gulp-cssnano';
-import gcmq from 'gulp-group-css-media-queries';
-import sourcemaps from 'gulp-sourcemaps';
-import jeet from 'jeet';
-import rupture from 'rupture';
-import koutoSwiss from 'kouto-swiss';
-import prefixer from 'autoprefixer-stylus';
-import rollup from 'gulp-rollup';
-import uglify from 'gulp-uglify';
-import pug from 'gulp-pug';
-import imagemin from 'gulp-imagemin';
-import browserSync from 'browser-sync';
-import ghPages from 'gulp-gh-pages';
-import mocha from 'gulp-mocha';
-import istanbul from 'gulp-istanbul';
-import isparta from 'isparta';
-import env from 'gulp-env';
-import rollupConfig from './rollup.config';
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+const stylus = require('gulp-stylus');
+const cssnano = require('gulp-cssnano');
+const gcmq = require('gulp-group-css-media-queries');
+const sourcemaps = require('gulp-sourcemaps');
+const jeet = require('jeet');
+const rupture = require('rupture');
+const koutoSwiss = require('kouto-swiss');
+const prefixer = require('autoprefixer-stylus');
+const rollup = require('gulp-rollup');
+const uglify = require('gulp-uglify');
+const pug from 'gulp-pug';
+const imagemin = require('gulp-imagemin');
+const browserSync = require('browser-sync');
+const ghPages = require('gulp-gh-pages');
+const mocha = require('gulp-mocha');
+const istanbul = require('gulp-istanbul');
+const env = require('gulp-env');
+const rollupConfig = require('./rollup.config');
 
 const srcPaths = {
     js: 'client/js/main.js',
@@ -92,7 +91,7 @@ gulp.task('browser-sync', () => {
     browserSync.init(files, {
         server: {
             baseDir: './build/'
-        },
+        }
     });
 });
 
@@ -110,11 +109,8 @@ gulp.task('env:test', () => {
 });
 
 gulp.task('pre-test:backend', () => {
-    return gulp.src(['backend/api/**/*.controller.js', '!backend/api/**/*.spec.js'])
-        .pipe(istanbul({
-            instrumenter: isparta.Instrumenter,
-            includeUntested: true
-        }))
+    return gulp.src(['server/api/**/*.controller.js', '!server/api/**/*.spec.js'])
+        .pipe(istanbul())
         .pipe(istanbul.hookRequire());
 });
 

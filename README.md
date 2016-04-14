@@ -1,6 +1,6 @@
-<img src="https://raw.githubusercontent.com/willianjusten/qualy/master/src/img/qualy.png" alt="Qualy">
+<img src="https://raw.githubusercontent.com/Qualy-org/qualy-full/master/client/img/qualy.png" alt="Qualy">
 
-# Qualy Fullstack
+**Work in progress**
 
 This projects uses ES6, Jade, Stylus, Gulp and Browsersync. The main objective of this boilerplate is to ensure Quality to our code with Code Standards and Hooks to prevent messy codes to be committed or pushed.
 
@@ -25,7 +25,7 @@ First of all, install the dependencies to run this boilerplate.
 
 ```sh
 # Clone this repository
-$ git clone git@github.com:willianjusten/qualy.git
+$ git clone https://github.com/Qualy-org/qualy-full.git
 $ cd qualy
 
 # install dependencies
@@ -38,21 +38,12 @@ With the commands above, you have everything to start.
 
 ```sh
 ├── README.md
-├── build
-│   ├── css
-│   │   └── main.css
+├── client
 │   ├── img
-│   │   └── eventos.jpg
-│   ├── index.html
-│   └── js
-│       └── main.js
-├── gulpfile.babel.js
-├── package.json
-└── client
-│   ├── img
-│   │   └── eventos.jpg
+│   │   └── qualy.png
 │   ├── js
-│   │   ├── main.js
+│   │   ├── hello.js
+│   │   └── main.js
 │   ├── styl
 │   │   ├── _base.styl
 │   │   ├── _components.styl
@@ -63,23 +54,27 @@ With the commands above, you have everything to start.
 │   │   ├── _trumps.styl
 │   │   └── main.styl
 │   └── templates
-│   │   └── index.jade
+│       └── index.jade
+├── gulpfile.babel.js
+├── package.json
+├── rollup.config.js
 └── server
-│   ├── app.js
-│   ├── config.js
-│   ├── routes.js
-│   ├── api
-│   │   ├── route-name
-│   │   │   ├── index.js
-│   │   │   ├── route-name.controller.js
-│   │   │   ├── route-name.controller.spec.js
+    ├── api
+    │   └── tech
+    │       ├── index.js
+    │       ├── tech.controller.js
+    │       └── tech.controller.spec.js
+    ├── app.js
+    ├── config.js
+    ├── index.js
+    └── routes.js
 ```
 
 Those folders and file will change during the project.
 
 ### Code Standarts
 
-This project uses [JSCS](http://jscs.info/) with [Airbnb presets](https://github.com/airbnb/javascript) and the [.editorconfig](https://github.com/frontendbr/eventos/blob/skeleton/.editorconfig) is defined to have indent_size of **4 spaces**.
+This project uses [JSCS](http://jscs.info/) with [Airbnb presets](https://github.com/airbnb/javascript) and the [.editorconfig](https://github.com/Qualy-org/qualy-full/blob/master/.editorconfig) is defined to have indent_size of **4 spaces**.
 
 This project also uses [Husky](https://github.com/typicode/husky) to prevent commit and push messy and wrong code. Please, don't be stupid, fix all errors before commit and push =D
 
@@ -96,6 +91,7 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 - `gulp watch`: call for watch files
 - `gulp pages`: deploy files to gh-pages
 - `gulp deploy`: run all tasks and deploy files to gh-pages
+- `gulp test`: run all tests and coverage reports
 
 ### Thanks
 
@@ -105,4 +101,4 @@ Thanks to [@Diessicode](https://twitter.com/diessicode/status/715381477286891520
 
 This boilerplate is free and open source software, distributed under the The MIT License. So feel free to use this to create your site without linking back to me or using a disclaimer.
 
-If you’d like to give me credit somewhere on your blog or tweet a shout out to [@willian_justen](https://twitter.com/willian_justen), that would be pretty sweet.
+If you’d like to give us credit somewhere on your blog or tweet a shout out to [@willian_justen](https://twitter.com/willian_justen), [@nipher_jonas](https://twitter.com/nipher_jonas) and [@g4brielgodoy](https://twitter.com/g4brielgodoy) that would be pretty sweet.

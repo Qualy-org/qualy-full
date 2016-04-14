@@ -1,9 +1,9 @@
 'use strict';
 
-import path from 'path';
+const path = require('path');
 
 // default
-var config = {
+let config = {
     root: path.normalize(__dirname + '/../'),
     host: '0.0.0.0',
     port: '9000'
@@ -19,4 +19,4 @@ switch (process.env.NODE_ENV) {
         break;
 }
 
-export default config;
+module.exports = config;
