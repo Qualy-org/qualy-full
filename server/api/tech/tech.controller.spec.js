@@ -1,10 +1,10 @@
 'use strict';
 
-import { expect } from 'chai';
-import request from 'supertest';
-import express from 'express';
-import bodyParser from 'body-parser';
-import router from './index';
+const expect = require('chai').expect;
+const request = require('supertest');
+const express = require('express');
+const bodyParser = require('body-parser');
+const router = require('./index');
 
 const app = express();
 

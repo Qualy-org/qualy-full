@@ -1,10 +1,10 @@
 'use strict';
 
-import express from 'express';
-import controller from './tech.controller';
+const express = require('express');
+const controller = require('./tech.controller');
 
 const router = express.Router();
 
 router.get('/', controller.find);
 
-export default router;
+module.exports = router;
