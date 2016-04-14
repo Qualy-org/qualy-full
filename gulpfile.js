@@ -12,7 +12,7 @@ const koutoSwiss = require('kouto-swiss');
 const prefixer = require('autoprefixer-stylus');
 const rollup = require('gulp-rollup');
 const uglify = require('gulp-uglify');
-const jade = require('gulp-jade');
+const pug from 'gulp-pug';
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const ghPages = require('gulp-gh-pages');
@@ -25,7 +25,7 @@ const srcPaths = {
     js: 'client/js/main.js',
     css: 'client/styl/**/*.styl',
     mainStyl: 'client/styl/main.styl',
-    jade: 'client/templates/**/*.jade',
+    pug: 'client/*.pug',
     img: 'client/img/**/*'
 };
 
@@ -33,7 +33,7 @@ const buildPaths = {
     build: 'build/**/*',
     js: 'build/js/',
     css: 'build/css/',
-    jade: 'build/',
+    pug: 'build/',
     img: 'build/img'
 };
 
@@ -58,11 +58,11 @@ gulp.task('js', () => {
         .pipe(gulp.dest(buildPaths.js));
 });
 
-gulp.task('jade', () => {
-    gulp.src(srcPaths.jade)
+gulp.task('pug', () => {
+    gulp.src(srcPaths.pug)
         .pipe(plumber())
-        .pipe(jade())
-        .pipe(gulp.dest(buildPaths.jade));
+        .pipe(pug())
+        .pipe(gulp.dest(buildPaths.pug));
 });
 
 gulp.task('images', () => {
@@ -77,7 +77,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch(srcPaths.jade, ['jade']);
+    gulp.watch(srcPaths.pug, ['pug']);
     gulp.watch(srcPaths.css, ['css']);
     gulp.watch(srcPaths.js, ['js']);
     gulp.watch(srcPaths.img, ['images']);
@@ -122,5 +122,5 @@ gulp.task('test:backend', ['pre-test:backend', 'env:test'], () => {
 });
 
 gulp.task('test', ['test:backend']);
-gulp.task('default', ['css', 'jade', 'js', 'images', 'watch', 'browser-sync']);
-gulp.task('deploy', ['css', 'jade', 'js', 'images', 'pages']);
+gulp.task('default', ['css', 'pug', 'js', 'images', 'watch', 'browser-sync']);
+gulp.task('deploy', ['css', 'pug', 'js', 'images', 'pages']);

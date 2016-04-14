@@ -39,10 +39,10 @@
     "gulp-gh-pages": "^0.5.4",
     "gulp-group-css-media-queries": "^1.1.0",
     "gulp-imagemin": "^2.4.0",
-    "gulp-istanbul": "^0.10.4",
-    "gulp-jade": "^1.1.0",
+    "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-pug": "1.2.0",
     "gulp-rollup": "^1.8.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-stylus": "^2.3.1",
@@ -59,6 +59,6 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
-    "jade": "^1.11.0"
+    "pug": "2.0.0-alpha3"
   }
 }
