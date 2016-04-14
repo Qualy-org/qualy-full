@@ -26,7 +26,7 @@ const srcPaths = {
     js: 'client/js/main.js',
     css: 'client/styl/**/*.styl',
     mainStyl: 'client/styl/main.styl',
-    pug: 'client/templates/*.pug',
+    pug: 'client/*.pug',
     img: 'client/img/**/*'
 };
 
