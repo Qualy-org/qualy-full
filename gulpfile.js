@@ -12,7 +12,7 @@ const koutoSwiss = require('kouto-swiss');
 const prefixer = require('autoprefixer-stylus');
 const rollup = require('gulp-rollup');
 const uglify = require('gulp-uglify');
-const pug from 'gulp-pug';
+const pug = require('gulp-pug');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const ghPages = require('gulp-gh-pages');
